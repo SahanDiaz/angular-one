@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
+import { APIResponse, Game } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,15 @@ export class HttpService {
   getGameList(
     ordering:string,
     search?:string
-  ): Observable<APIResponses<Game>>{
+  ): Observable<APIResponse<Game>>{
     let params = new HttpParams().set('ordering',ordering);
-  }
-  if(search: string | number | boolean){
+  
+  if(search){
     params = new HttpParams().set('ordering',ordering).set('search',search);
-  }
+  }  
 
   return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`,{
     params: params,
   });
-
-  
-
+}
 }
