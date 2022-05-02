@@ -11,7 +11,7 @@ export interface Game {
     publishers: Array<Publishers>;
     ratings: Array<Ratings>;
     screenshots: Array<Screenshots>;
-    trailers: Array<Trailers>;
+    trailers: Array<Trailer>;
 }
 export interface APIResponse<T>{
     results: Array<T>;
@@ -36,7 +36,7 @@ interface Screenshots {
     image: string;
    
 }
-interface Trailers {
+interface Trailer {
     data:{
         max: string;
     }
