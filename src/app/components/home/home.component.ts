@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from 'src/app/models';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public sort!:string;
+  public games: Array<Game> ;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      if (params['game-search']) {
+        this.searchGames('metacrit',params['game-search'])a
+      }
+    } )
   }
 
 }
